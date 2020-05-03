@@ -40,27 +40,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		return daoAuthenticationProvider;
 	}
 
-	/*
-	 * @Override protected void configure(HttpSecurity httpSecurity) throws
-	 * Exception {
-	 * httpSecurity.authorizeRequests().antMatchers("/").permitAll().and().headers()
-	 * .frameOptions().sameOrigin().and() .csrf().disable();
-	 * 
-	 * }
-	 */
+	@Override
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.authorizeRequests().antMatchers("/").permitAll().and().headers().frameOptions().sameOrigin().and()
+				.csrf().disable();
 
-	/*
-	 * @Bean
-	 * 
-	 * @Override protected UserDetailsService userDetailsService() {
-	 * 
-	 * List<UserDetails> users = new ArrayList<>();
-	 * users.add(User.withDefaultPasswordEncoder().username("Admin").password(
-	 * "Admin@123").roles("ADMIN", "USER") .build());
-	 * users.add(User.withDefaultPasswordEncoder().username("Pratik").password(
-	 * "Pratik@123").roles("USER").build());
-	 * 
-	 * return new InMemoryUserDetailsManager(users); }
-	 */
+	}
 
 }
