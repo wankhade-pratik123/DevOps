@@ -20,8 +20,8 @@ public class LibraryService {
 		libraryRepositroy.save(library);
 	}
 	
-	public void updateLibrary(long lib_id,Library library) {
-		library.setId(lib_id); 
+	public void updateLibrary(long libId,Library library) {
+		library.setId(libId); 
 		libraryRepositroy.save(library);
 	}
 
